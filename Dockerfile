@@ -2,6 +2,10 @@ FROM alpine:3.9 AS build
 
 WORKDIR /
 
+RUN apk add bash py-pip
+RUN apk add gcc libffi-dev musl-dev openssl-dev python-dev make
+RUN pip install azure-cli
+
 RUN apk add --update -t deps openssl curl wget tar gzip bash
 
 RUN curl -fsSLO https://storage.googleapis.com/kubernetes-release/release/$(curl -fsS https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && mv ./kubectl /usr/local/bin/kubectl
@@ -26,3 +30,4 @@ COPY --from=build /usr/local/bin/kubectl /bin/kubectl
 COPY --from=build /usr/bin/ansible /bin/ansible
 COPY --from=build /usr/bin/ansible-galaxy /bin/ansible-galaxy
 COPY --from=build /usr/bin/ansible-playbook /bin/ansible-playbook
+COPY --from=build /usr/bin/az /bin/az

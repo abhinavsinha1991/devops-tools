@@ -27,3 +27,5 @@ RUN apk add ansible
 COPY --from=build /usr/local/bin/helm /bin/helm
 COPY --from=build /usr/local/bin/tiller /bin/tiller 
 COPY --from=build /usr/local/bin/kubectl /bin/kubectl
+
+RUN chmod +x /bin/helm && chmod +x /bin/tiller && chmod +x /bin/kubectl

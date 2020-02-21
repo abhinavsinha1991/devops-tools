@@ -10,7 +10,7 @@ RUN curl -fsS https://raw.githubusercontent.com/kubernetes/helm/master/scripts/g
 
 FROM alpine:3.9
 
-RUN apk add --update --no-cache git ca-certificates wget RUN wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub RUN wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.29-r0/glibc-2.29-r0.apk
+RUN apk add --update --no-cache git ca-certificates wget RUN wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub RUN wget -q -O https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.29-r0/glibc-2.29-r0.apk
 
 RUN apk add glibc-2.29-r0.apk
 

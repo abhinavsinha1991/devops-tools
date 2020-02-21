@@ -23,6 +23,6 @@ RUN apk add ansible
 COPY --from=build /usr/local/bin/helm /bin/helm
 COPY --from=build /usr/local/bin/tiller /bin/tiller 
 COPY --from=build /usr/local/bin/kubectl /bin/kubectl
-COPY --from=build /usr/local/bin/ansible /bin/ansible
-COPY --from=build /usr/local/bin/ansible-galaxy /bin/ansible-galaxy
-COPY --from=build /usr/local/bin/ansible-playbook /bin/ansible-playbook
+COPY --from=build /usr/bin/ansible /bin/ansible
+COPY --from=build /usr/bin/ansible-galaxy /bin/ansible-galaxy
+COPY --from=build /usr/bin/ansible-playbook /bin/ansible-playbook

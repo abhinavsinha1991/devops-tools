@@ -18,11 +18,11 @@ RUN wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.29-r0/
 
 RUN apk add glibc-2.29-r0.apk
 
+RUN apk add ansible
+
 RUN apk add bash py-pip
 RUN apk add gcc libffi-dev musl-dev openssl-dev python-dev make
 RUN pip install azure-cli
-
-RUN apk add ansible
 
 COPY --from=build /usr/local/bin/helm /bin/helm
 COPY --from=build /usr/local/bin/tiller /bin/tiller 
